@@ -1,0 +1,16 @@
+<div class="card">
+    <h2>Login</h2>
+    <form (ngSubmit)="onLogin()">
+        <div>
+            <label for="username">Username: </label>
+            <input type="text" [(ngModel)]="username" name="username" required>
+        </div>
+
+          <div>
+            <label for="username">Password: </label>
+            <input type="password" [(ngModel)]="password" name="password" required>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+</div>

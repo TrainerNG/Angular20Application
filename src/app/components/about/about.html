@@ -1,0 +1,9 @@
+<div class="card">
+    <h2>About Component</h2>
+    <p>This component is protected by an Auth Guard. You must be logged in to access it.</p>
+    <p>Resolved Data : {{resolvedData.message}} at {{resolvedData.timestamp | date: 'medium'}}</p>
+    <p>Shared Counter : {{counterService.countValue}} </p>
+
+    <button (click)="increment()">Increment Shared Counter</button>
+    <button (click)="logout()">Logout</button>
+</div>

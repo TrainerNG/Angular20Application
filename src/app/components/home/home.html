@@ -1,0 +1,27 @@
+<!-- [NgClass] -> we only use when we have some dynamic conditions/ you can simply use normal class -->
+
+    <!-- <div [ngClass]="{'active': isActive, 'highlight': isHighlighted}">
+      This div's classes depend on isActive and isHighlighted.
+    </div> -->
+
+<div class="card">
+    <h1>Home Component</h1>
+    <p>Angular Bindings examples</p>
+
+    <p>Hello, {{name}} ! The counter value is {{counterService.countValue}}</p>
+
+    <p [style.color]="isVisible ? 'green' : 'red'">Text changes color based on button click</p>
+
+    <input type="text" [(ngModel)]="name" (input)="onInputChange()" placeholder="Enter your name">
+    <button (click)="toggleVisiblity()">Toggle Visiblity</button>
+
+     <button (click)="increment()">Increment Counter</button>
+
+     @if (isVisible) {
+        <div>
+        <p>This content is conditionally shown.</p>
+        </div>
+     }
+
+     <p>This component has canDeactivate guard. Try chaning the input and</p>
+</div>
