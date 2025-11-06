@@ -6,6 +6,8 @@ import { delay, Observable, of } from "rxjs";
   providedIn: 'root'
 })
 
+
+// RXJS/OBSERAVBLES/SUBSCIRBES -> HTTP CLIENTS
 export class DataResolver implements Resolve<any>{
 resolve(): Observable<any> {
   // Simulate/ Mimic use of API

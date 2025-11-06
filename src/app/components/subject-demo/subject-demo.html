@@ -1,0 +1,15 @@
+<div>
+    <h3>Send Message: </h3>
+<input type="text" [(ngModel)]="inputValue" placeholder="Enter your message or something">
+<button (click)="sendMessage()">Send</button>
+</div>
+
+<div>
+    <h3>Message: </h3>
+
+    <ul>
+        <li *ngFor="let msg of messages">
+            {{msg}}
+        </li>
+    </ul>
+</div>
