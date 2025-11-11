@@ -1,0 +1,71 @@
+<div class="form-container">
+    <h2>Simple Reactive Form</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <!-- NAME -->
+
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input type="text" formControlName="name" class="form-control">
+            @if (nameControl?.invalid && nameControl?.touched) {
+            <div class="error">
+                @if (nameControl?.errors?.['required']) {
+                <div>
+                    Name is required
+                </div>
+                }
+            </div>
+            }
+
+            @if (nameControl?.errors?.['minlength']) {
+                <div>
+                    Name must be atleast 3 characterrs
+                </div>
+            }
+        </div>
+
+         <!-- EMAIL -->
+
+          <div class="form-group">
+            <label for="name">Email: </label>
+            <input type="email" formControlName="email" class="form-control">
+            @if (emailControl?.invalid && emailControl?.touched) {
+            <div class="error">
+                @if (emailControl?.errors?.['required']) {
+                Email is required
+                }
+            </div>
+            }
+
+            @if (emailControl?.errors?.['email']) {
+                <div>
+                    Please enter a valid email
+                </div>
+            }
+        </div>
+
+        <!-- COUNTRY -->
+
+        <div class="form-group">
+            <label for="country">Country :</label>
+            <select id="country" formControlName="country" class="form-control">
+                @for (country of countries; track country.value) {
+                    <option [value]="country.value">{{country.label}}</option>
+                }
+            </select>
+        </div>
+
+        @if (selectedStates.length > 0){
+        <div class="form-group">
+            <label>Avalaible States: </label>
+            <ul class="state-list">
+                @for (state of selectedStates; track state) {
+                    <li>{{state}}</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <button type="submit" [disabled]="!form.valid" class="submit-btn">Submit</button>
+    </form>
+</div>

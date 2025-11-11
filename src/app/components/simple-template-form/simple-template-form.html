@@ -1,0 +1,29 @@
+<div class="form-container">
+    <h2>Simple Template Driven Form</h2>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+        <!-- NAME VALIDATIONS -->
+
+        <div class="form-group">
+            <label for="">Name: </label>
+            <!-- [(ngModel)] => ngModel -->
+            <input type="text" name="name" ngModel #name = "ngModel" required minlength="3" class="form-control">
+            <div class="error" *ngIf="name.touched">
+                <div *ngIf="name.errors?.['required']">Name is required</div>
+                <div *ngIf="name.errors?.['minlength']">Name must be atlease 3 characters</div>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label for="">Email: </label>
+            <!-- [(ngModel)] => ngModel -->
+            <input type="text" name="email" ngModel #email = "ngModel" required email class="form-control">
+            <div class="error" *ngIf="email.touched">
+                <div *ngIf="email.errors?.['required']">Email is required</div>
+                <div *ngIf="email.errors?.['email']">Please enter a valid email.</div>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="!form.valid" class="submit-btn">Submit</button>
+    </form>
+</div>
