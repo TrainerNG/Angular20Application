@@ -1,0 +1,63 @@
+.form-container{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-group{
+    margin-bottom: 15px;
+}
+
+label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.form-control.ng-invalid.ng-touched{
+    border-color: #dc3545;
+}
+
+.error{
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.submit-btn{
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.state-list{
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.state-list li{
+    padding: 2px 0;
+    color: #495057;
+    font-size: 14px;
+}

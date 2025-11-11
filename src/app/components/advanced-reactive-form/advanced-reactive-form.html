@@ -1,0 +1,88 @@
+<div class="form-container">
+    <h2>Advanced Reactive Form</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div formGroupName="user" class="form-section">
+            <h3>User Info</h3>
+
+            <!-- FIRST NAME -->
+            <div class="form-group">
+                <label for="firstName">First Name: </label>
+                <input type="text" formControlName="firstName" class="form-control">
+                <div class="error" *ngIf="form.get('user.firstName')?.invalid && form.get('user.firstName')?.touched">
+                    <div *ngIf="form.get('user.firstName')?.errors?.['required']">First name is required</div>
+                    <div *ngIf="form.get('user.firstName')?.errors?.['minlength']">First name must be at least 2
+                        characters</div>
+                    <div *ngIf="form.get('user.firstName')?.errors?.['invalidName']">First Name can only contain letters
+                        and spaces
+                    </div>
+                </div>
+            </div>
+
+            <!-- LAST NAME -->
+            <div class="form-group">
+                <label for="lastName">Last Name: </label>
+                <input type="text" formControlName="lastName" class="form-control">
+                <div class="error" *ngIf="form.get('user.lastName')?.invalid && form.get('user.lastName')?.touched">
+                    <div *ngIf="form.get('user.lastName')?.errors?.['required']">Last name is required</div>
+                    <div *ngIf="form.get('user.lastName')?.errors?.['minlength']">Last name must be at least 2
+                        characters
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="text" formControlName="email" class="form-control">
+                <div class="error">
+                    <!-- Sync validators -->
+                    <div *ngIf="form.get('user.email')?.errors?.['required'] && form.get('user.email')?.touched">
+                        Email is required
+                    </div>
+                    <div *ngIf="form.get('user.email')?.hasError('email') && form.get('user.email')?.touched">
+                        Please enter a valid email
+                    </div>
+
+                    <!-- Async Validator -->
+
+                    <div *ngIf="form.get('user.email')?.pending">
+                        <small>Checking email availability</small>
+                    </div>
+
+                    <div *ngIf="form.get('user.email')?.hasError('emailExists')">
+                        {{form.get('user.email')?.errors?.['emailExists']}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div formGroupName="address" class="form-section">
+            <div class="form-group">
+                <label for="street">Street: </label>
+                <input type="text" formControlName="street" class="form-control">
+                <div class="error" *ngIf="form.get('address.street')?.invalid && form.get('address.street')?.touched">
+                    <div *ngIf="form.get('address.street')?.errors?.['required']">Street name is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="street">City: </label>
+                <input type="text" formControlName="city" class="form-control">
+                <div class="error" *ngIf="form.get('address.city')?.invalid && form.get('address.city')?.touched">
+                    <div *ngIf="form.get('address.city')?.errors?.['required']">City name is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="street">Zip Code: </label>
+                <input type="number" formControlName="zip" class="form-control">
+                <div class="error" *ngIf="form.get('address.zip')?.invalid && form.get('address.zip')?.touched">
+                    <div *ngIf="form.get('address.zip')?.errors?.['required']">Zip code is required</div>
+                    <div *ngIf="form.get('address.zip')?.errors?.['pattern']">Zip code must be 5 digits</div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="!form.valid" class="submit-btn">Submit</button>
+    </form>
+</div>
