@@ -10,6 +10,7 @@ import { RxjsDemo } from './components/rxjs-demo/rxjs-demo';
 import { SignalDemo } from './components/signal-demo/signal-demo';
 import { SimpleTemplateForm } from './components/simple-template-form/simple-template-form';
 import { SimpleReactiveForm } from './components/simple-reactive-form/simple-reactive-form';
+import { AdvancedReactiveForm } from './components/advanced-reactive-form/advanced-reactive-form';
 
 export const routes: Routes = [
     {
@@ -57,5 +58,10 @@ export const routes: Routes = [
     {
         path:'simple-reactive-form',
         component: SimpleReactiveForm
+    },
+
+    {
+        path:'advance-reactive-form',
+        component: AdvancedReactiveForm
     }
 ];

@@ -55,6 +55,8 @@ export class SimpleReactiveForm {
   selectedStates: string[] = []; // ['California' ,'Texas']
 
   ngOnInit() {
+
+    // REACTIVE
     this.countryControl?.valueChanges.subscribe((country) => { // us // states : us
       this.selectedStates = this.states[country] || [];
       console.log('Country changed to: ', country);
